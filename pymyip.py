@@ -22,7 +22,7 @@ def myip(*arg):
         elif (arg[0] == "a"):
             print ("\nYour WAN IP is:\t\t\t" + ip_response["YourFuckingIPAddress"])
             print ("Your WAN IP's hostname is:\t" + ip_response["YourFuckingHostname"])
-            print ("Your WAN IP's ISP-ASN is:\t\t" + ip_response["YourFuckingISP"])
+            print ("Your WAN IP's ISP-ASN is:\t" + ip_response["YourFuckingISP"])
             print ("Your WAN IP's location is:\t" + ip_response["YourFuckingLocation"] + "\n")
         else:
             print ("Wrong argument!")
@@ -35,7 +35,7 @@ def main():
     Checks command-line arguments and calls the relevant function.
     """
 
-    cli_argparser = argparse.ArgumentParser(description='')
+    cli_argparser = argparse.ArgumentParser(description='pymyip - A python script that shows your current WAN IP address.')
     cli_argparser.add_argument('-a', '--all', nargs='?', const=1, help="Lists all the information about the current WAN IP.", required=False)
     cli_argparser.add_argument('-l', '--location', nargs='?', const=1, help="Lists the country of origin for the current WAN IP.", required=False)
 
@@ -46,7 +46,7 @@ def main():
     elif (cli_args.location):
         (myip("l"))
     else:
-        print ("Your WAN IP is: " + myip())
+        print ("\nYour WAN IP is: " + myip() + "\n")
 
 if __name__ == '__main__':
     sys.exit(main())
